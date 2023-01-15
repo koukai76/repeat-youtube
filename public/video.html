@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>リピート動画</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100vh;
+      }
+
+      iframe {
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <iframe
+        id="video"
+        src=""
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <script>
+      const params = new URL(window.location.href).searchParams;
+      const q = params.get('q');
+
+      document.getElementById(
+        'video'
+      ).src = `https://www.youtube.com/embed/${q}?loop=1&playlist=${q}&autoplay=1&mute=1&playsinline=1`;
+    </script>
+  </body>
+</html>
