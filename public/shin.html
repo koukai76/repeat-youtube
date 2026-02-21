@@ -95,6 +95,21 @@
           return null;
         }
       }
+
+      const main = () => {
+        const v = new URL(window.location.href).searchParams.get('v');
+
+        if (v == undefined || v === null) {
+          return;
+        }
+
+        document.getElementById(
+          'urlInput'
+        ).value = `https://www.youtube.com/watch?v=${v}`;
+        loadVideo();
+      };
+
+      main();
     </script>
   </body>
 </html>
